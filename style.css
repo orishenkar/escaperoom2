@@ -1,0 +1,41 @@
+body {
+  direction: rtl;
+  font-family: 'David', serif;
+  background-image: url('images/parchment-bg.jpg');
+  background-size: cover;
+  color: #3e2f1c;
+  padding: 20px;
+  text-align: center;
+}
+.container {
+  max-width: 650px;
+  margin: auto;
+  background: rgba(255, 248, 225, 0.9);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+input, button {
+  margin: 10px;
+  padding: 12px;
+  font-size: 1.1em;
+}
+button {
+  background-color: #a87c4f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #8c643b;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.decor {
+  width: 60px;
+  height: auto;
+}

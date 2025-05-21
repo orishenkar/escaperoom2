@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>חדר בריחה ארכיאולוגי</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="images/header-grapes.png" alt="ענבים" class="decor" />
+      <h1>חדר בריחה ארכיאולוגי</h1>
+      <img src="images/header-olive.png" alt="זיתים" class="decor" />
+    </header>
+    <div id="question-box">
+      <p id="question">טוען שאלה...</p>
+      <input type="text" id="answer" placeholder="הכנס תשובה" />
+      <button onclick="checkAnswer()">בדוק</button>
+      <p id="feedback"></p>
+    </div>
+  </div>
+  <script>
+    const questions = JSON.parse(localStorage.getItem("questions")) || [
+      { question: "מהי בירת ישראל?", answer: "ירושלים" },
+      { question: "מהו כלי החרס הנפוץ שנמצא בחפירות?", answer: "קנקן" }
+    ];
+    let current = 0;
+
+    function showQuestion() {
+      if (current < questions.length) {
+        document.getElementById("question").textContent = questions[current].question;
+      } else {
+        document.getElementById("question-box").innerHTML = "<h2>כל הכבוד! פתרת את כל החידות!</h2>";
+      }
+    }
+
+    function checkAnswer() {
+      const userAnswer = document.getElementById("answer").value.trim();
+      const correct = questions[current].answer.trim();
+      if (userAnswer === correct) {
+        current++;
+        document.getElementById("feedback").textContent = "נכון!";
+        document.getElementById("answer").value = "";
+        showQuestion();
+      } else {
+        document.getElementById("feedback").textContent = "נסה שוב.";
+      }
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>
